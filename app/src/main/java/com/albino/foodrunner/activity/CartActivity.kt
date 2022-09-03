@@ -219,22 +219,28 @@ class CartActivity : AppCompatActivity() {
 
                             for (i in 0 until data.length()) {
                                 val cartItemJsonObject = data.getJSONObject(i)
+                                if (::selectedItemsId.isInitialized) {
+                                    if(selectedItemsId.contains(cartItemJsonObject.getString("id")))//if the fetched id is present in the selected id save
+                                    {
 
-                                if(selectedItemsId.contains(cartItemJsonObject.getString("id")))//if the fetched id is present in the selected id save
-                                {
+                                        val menuObject = CartItems(
+                                            cartItemJsonObject.getString("id"),
+                                            cartItemJsonObject.getString("name"),
+                                            cartItemJsonObject.getString("cost_for_one"),
+                                            cartItemJsonObject.getString("restaurant_id"))
 
-                                    val menuObject = CartItems(
-                                        cartItemJsonObject.getString("id"),
-                                        cartItemJsonObject.getString("name"),
-                                        cartItemJsonObject.getString("cost_for_one"),
-                                        cartItemJsonObject.getString("restaurant_id"))
-
-                                    totalAmount= totalAmount+cartItemJsonObject.getString("cost_for_one").toString().toInt()
+                                        totalAmount= totalAmount+cartItemJsonObject.getString("cost_for_one").toString().toInt()
 
 
-                                    cartListItems.add(menuObject)
+                                        cartListItems.add(menuObject)
 
+                                    }
                                 }
+
+
+
+
+
                                 //progressBar.visibility = View.GONE
 
                                 menuAdapter = CartAdapter(

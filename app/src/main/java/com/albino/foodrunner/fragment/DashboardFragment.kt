@@ -11,12 +11,11 @@ import android.text.TextWatcher
 import android.view.*
 import android.widget.EditText
 import android.widget.RelativeLayout
-import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
 import com.albino.foodrunner.R
 import com.albino.foodrunner.adapter.DashboardFragmentAdapter
 import com.albino.foodrunner.model.Restaurant
@@ -28,8 +27,6 @@ import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.sort_radio_button.view.*
 import org.json.JSONException
 import java.util.*
-import kotlin.Comparator
-import kotlin.collections.HashMap
 
 /**
  * A simple [Fragment] subclass.
